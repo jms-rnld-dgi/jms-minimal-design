@@ -1,220 +1,187 @@
-[README-portfolio.md](https://github.com/user-attachments/files/34855788/README-portfolio.md)# James Ronald Daguio --- Personal Portfolio
 
-A personal portfolio website showcasing my background, projects,
-technical interests, and journey as a **BS Computer Science student at
-Cavite State University -- Bacoor City Campus**, with a growing interest
-in cybersecurity.
+# James Ronald Daguio — Personal Portfolio
 
-```{=html}
+A personal portfolio website showcasing my background, projects, technical skills, and journey as a Computer Science student interested in Cybersecurity.
+
 <p align="center">
-```
-`<a href="https://jms-rnld-dgi.github.io/jms-minimal-design/">`{=html}`<strong>`{=html}Visit
-the Live Website`</strong>`{=html}`</a>`{=html}  · 
-`<a href="https://github.com/jms-rnld-dgi/jms-minimal-design">`{=html}`<strong>`{=html}View
-Source Code`</strong>`{=html}`</a>`{=html}
-```{=html}
+  <a href="https://jms-rnld-dgi.github.io/jms-minimal-design/">
+    <strong>🌐 View Live Website</strong>
+  </a>
+  &nbsp; • &nbsp;
+  <a href="https://github.com/jms-rnld-dgi/jms-minimal-design">
+    <strong>📁 Source Code</strong>
+  </a>
 </p>
-```
-```{=html}
+
 <p align="center">
-```
-`<img src="https://img.shields.io/badge/status-live-success" alt="Live status">`{=html}
-`<img src="https://img.shields.io/badge/HTML5-structure-orange" alt="HTML5">`{=html}
-`<img src="https://img.shields.io/badge/CSS3-styling-blue" alt="CSS3">`{=html}
-`<img src="https://img.shields.io/badge/JavaScript-vanilla-yellow" alt="JavaScript">`{=html}
-`<img src="https://img.shields.io/badge/hosting-GitHub%20Pages-222" alt="GitHub Pages">`{=html}
-```{=html}
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare">
+  <img src="https://img.shields.io/badge/GitHub_Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white" alt="GitHub Pages">
 </p>
-```
 
-------------------------------------------------------------------------
+---
 
-## About the Project
+## 📖 About the Project
 
-This portfolio presents my profile, interests, selected projects,
-learning activities, and contact information through a responsive,
-minimalist interface.
+This project is my personal portfolio website, created to introduce myself, showcase my academic and personal projects, and document my development as a Computer Science student.
 
-It is built with semantic HTML, CSS, and vanilla JavaScript. The project
-does not require a front-end framework, package manager, or build
-process.
+The website follows a minimalist, monochrome, and editorial-inspired design. It focuses on readability, simplicity, responsive layouts, and interactive elements.
 
-## Features
+## ✨ Features
 
--   **Responsive layout** -- adapts to desktop, tablet, and mobile
-    screens.
--   **Portfolio sections** -- Home, About, Labs, Projects, Background,
-    Credentials, and Contact.
--   **Theme controls** -- light and dark appearance.
--   **Interactive utilities** -- chatbot and additional interface
-    interactions.
--   **Résumé download** -- downloadable PDF résumé.
--   **Protected contact form** -- Cloudflare Turnstile verification and
-    a Cloudflare Worker backend.
+- **Home** — Personal introduction and landing section.
+- **About** — Background, interests, and technical skills.
+- **Labs** — Technical experiments and cybersecurity learning activities.
+- **Projects** — Selected academic and personal projects.
+- **Background** — Education and experience.
+- **Credentials** — Certificates and achievements.
+- **Contact** — Contact form for inquiries.
+- **Responsive Design** — Adapted for desktop, tablet, and mobile devices.
+- **Theme Controls** — Customizable website appearance.
+- **Interactive Chatbot** — Portfolio assistance and navigation.
+- **Résumé** — Downloadable résumé.
+- **Contact Security** — Cloudflare Turnstile verification and server-side validation through a Cloudflare Worker.
 
-## Built With
+## 🛠️ Built With
 
-  Technology             Purpose
-  ---------------------- -----------------------------------------------------
-  HTML5                  Semantic page structure and content
-  CSS3                   Layout, styling, transitions, and responsive design
-  JavaScript (Vanilla)   Navigation and interactive features
-  Cloudflare Turnstile   Visitor verification
-  Cloudflare Workers     Contact form API and server-side validation
-  FormSubmit             Email delivery
-  GitHub Pages           Static website hosting
-  GitHub Actions         Automated deployment
+| Technology | Purpose |
+|---|---|
+| HTML5 | Website structure |
+| CSS3 | Styling, animations, and responsive layout |
+| JavaScript | Interactions and functionality |
+| Cloudflare Turnstile | Contact form verification |
+| Cloudflare Workers | Contact form backend |
+| GitHub Pages | Website hosting |
 
-No framework, package manager, or build step is required.
+## 📂 Project Structure
 
-## Project Structure
-
-``` text
+```text
 jms-minimal-design/
+│
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml
+│
 ├── assets/
-│   ├── pfp.jpg
-│   └── james-ronald-daguio-resume.pdf
+│   ├── james-ronald-daguio-resume.pdf
+│   └── pfp.jpg
+│
 ├── cloudflare-worker/
 │   ├── src-worker.js
 │   └── wrangler.toml
+│
 ├── css/
 │   └── styles.css
+│
 ├── js/
 │   └── main.js
+│
 ├── .nojekyll
 ├── DEPLOY.md
 ├── index.html
 └── README.md
 ```
 
-## Run Locally
+## 🚀 Run Locally
 
-1.  Clone the repository:
+To run the portfolio on your local machine:
 
-    ``` bash
-    git clone https://github.com/jms-rnld-dgi/jms-minimal-design.git
-    ```
+1. Clone the repository:
 
-2.  Open the project folder:
+   ```bash
+   git clone https://github.com/jms-rnld-dgi/jms-minimal-design.git
+   ```
 
-    ``` bash
-    cd jms-minimal-design
-    ```
+2. Navigate to the project folder:
 
-3.  Start a local static server.
+   ```bash
+   cd jms-minimal-design
+   ```
 
-    **Windows:**
+3. Open the folder in Visual Studio Code:
 
-    ``` powershell
-    py -m http.server 8000
-    ```
+   ```bash
+   code .
+   ```
 
-    **macOS / Linux:**
+4. Open `index.html` using the Live Server extension or your preferred local development server.
 
-    ``` bash
-    python3 -m http.server 8000
-    ```
+## 🌐 Deployment
 
-4.  Open <http://localhost:8000> in your browser.
+This portfolio is hosted using **GitHub Pages**.
 
-You can also open `index.html` directly. A local server is recommended
-for consistent behavior.
+Live Website:
 
-## Deployment (GitHub Pages)
+https://jms-rnld-dgi.github.io/jms-minimal-design/
 
-This repository uses GitHub Actions to publish the static website.
+The repository includes a GitHub Actions workflow that handles deployment when changes are pushed to the `main` branch.
 
-1.  Open **Settings → Pages** in the repository.
-2.  Under **Build and deployment**, select **GitHub Actions** as the
-    source.
-3.  Push a commit to `main`, or manually run the deployment workflow
-    from the **Actions** tab.
-4.  Wait for the workflow to complete successfully.
-5.  Visit the [live
-    portfolio](https://jms-rnld-dgi.github.io/jms-minimal-design/).
+## 📬 Contact Form Architecture
 
-Every new push to `main` triggers a deployment.
+The contact form uses a separate Cloudflare Worker to process submissions.
 
-## Contact Form
+```text
+Visitor
+   │
+   ▼
+Portfolio Contact Form
+   │
+   ▼
+Cloudflare Turnstile
+   │
+   ▼
+Cloudflare Worker
+   │
+   ├── Request Validation
+   ├── Rate Limiting
+   └── Turnstile Verification
+   │
+   ▼
+Email Forwarding
+```
 
-The contact form uses the following request flow:
+Security features include:
 
-1.  A visitor completes the form and the Cloudflare Turnstile challenge.
-2.  `js/main.js` sends the form fields and verification token to the
-    Cloudflare Worker.
-3.  `cloudflare-worker/src-worker.js` checks the request origin, applies
-    rate limiting, validates the form fields, and verifies the token
-    through Cloudflare Siteverify.
-4.  Accepted messages are forwarded to FormSubmit for email delivery.
+- Cloudflare Turnstile verification.
+- Server-side token validation.
+- Request and input validation.
+- Rate limiting.
+- Allowed-origin checking.
+- Secret keys stored as Worker secrets.
 
-**Worker endpoint:**
+**Note:** Turnstile has been observed working on mobile data, while Wi-Fi loading is still being investigated. End-to-end email delivery should be tested before considering the contact form fully verified.
 
-`https://jr-portfolio-contact.jamesrdaguio.workers.dev/api/contact`
+## 🎓 Academic Information
 
-### Worker Configuration
+| Information | Details |
+|---|---|
+| Name | James Ronald Daguio |
+| Program | Bachelor of Science in Computer Science |
+| Institution | Cavite State University – Bacoor City Campus |
+| Interest | Cybersecurity |
+| Career Goal | Cybersecurity Professional |
 
-The deployed Worker requires:
+## 🔐 Areas of Interest
 
--   `TURNSTILE_SECRET_KEY` --- private secret stored in Cloudflare
-    Worker settings.
--   `CONTACT_LIMITER` --- rate-limit binding.
--   Rate limit --- 5 requests per IP per 60 seconds.
--   Allowed origin --- `https://jms-rnld-dgi.github.io`.
--   Expected Turnstile hostname --- `jms-rnld-dgi.github.io`.
+- Cybersecurity
+- Vulnerability Assessment and Penetration Testing (VAPT)
+- Network Security
+- Ethical Hacking
+- Web Development
+- Information Security
 
-The Turnstile sitekey is public and is configured in `index.html`.
-**Never publish the Turnstile secret key or place it in client-side
-code.**
+## 📄 Credits and Disclaimer
 
-**Current verification status:** The portfolio and Worker are deployed.
-Turnstile rendering has been observed on mobile data, while rendering on
-the Wi-Fi network is still being troubleshot. End-to-end email delivery
-has not yet been confirmed.
+This portfolio was developed for personal branding, academic presentation, and professional development.
 
-## Featured Project
+All project descriptions and materials are presented for educational and portfolio purposes. Third-party trademarks, technologies, and resources belong to their respective owners.
 
-### Hyouka Character Tribute --- Houtarou Oreki
+---
 
--   **Live website:**
-    https://jms-rnld-dgi.github.io/Character-Tribute-Website-Project/
--   **Source repository:**
-    https://github.com/jms-rnld-dgi/Character-Tribute-Website-Project
-
-## Cybersecurity Learning Profiles
-
--   **TryHackMe:** https://tryhackme.com/p/jamesrdaguio
--   **Hack The Box:**
-    https://profile.hackthebox.com/profile/01a1da48-59f2-739e-94ac-3b824cd6ca5b
-
-These are learning profiles and do not imply completed certifications.
-
-## Academic Information
-
--   **Developer:** James Ronald Daguio
--   **Program:** Bachelor of Science in Computer Science
--   **Institution:** Cavite State University -- Bacoor City Campus
--   **Interest:** Cybersecurity
-
-## Credits and Privacy
-
-This portfolio uses third-party tools and services where noted. Project
-media, fonts, and other assets remain the property of their respective
-owners.
-
-The public résumé is stored at `assets/james-ronald-daguio-resume.pdf`.
-Review personal information in the PDF before distributing or replacing
-it.
-
-------------------------------------------------------------------------
-
-```{=html}
 <p align="center">
-```
-Made as a personal portfolio and a continuing front-end development
-project.
-```{=html}
+  Designed and developed by <strong>James Ronald Daguio</strong>
+  <br>
+  © 2026 All Rights Reserved.
 </p>
-```
