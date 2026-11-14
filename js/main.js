@@ -157,11 +157,11 @@
       [0, 2, 2, 1, 3, 2, 2],
       [1, 1, 2, 2, 1, 3, 3],
       [0, 2, 1, 2, 2, 3, 2],
-      [1, 2, 2, 1, 3, 3, 2]
+      [1, 0, 0, 0, 0, 0, 0]
     ];
 
     const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-    const labels = ['Rest / Reading', '1 Lab Room', '2 Lab Rooms + Notes', 'Deep Lab + Recon Session'];
+    const labels = ['No lab session', '1 Lab Room', '2 Lab Rooms + Notes', 'Deep Lab + Recon Session'];
 
     pattern.forEach((week, wIdx) => {
       const col = document.createElement('div');
@@ -180,7 +180,7 @@
     });
 
     activityGrid.addEventListener('mouseleave', () => {
-      if (activitySummary) activitySummary.textContent = 'CONSISTENT WEEKLY SESSIONS';
+      if (activitySummary) activitySummary.textContent = 'W16 ACTUAL / 15 SAMPLE';
     });
   }
 
@@ -389,8 +389,8 @@
       reply: 'I am focused on building solid fundamentals in Linux administration, TCP/IP networking, log analysis, and defensive alert triage for an entry-level SOC Analyst role.'
     },
     {
-      match: /bug|bounty|side|quest|recon|owasp/i,
-      reply: 'Bug bounty hunting is my side quest—I practice web reconnaissance, HTTP request analysis, and OWASP Top 10 vulnerability patterns on authorized labs like Hack The Box.'
+      match: /bug|bounty|side|hustle|recon|owasp/i,
+      reply: 'Bug bounty hunting is my side hustle. I practice web reconnaissance and test authorized programs or labs, then report vulnerabilities responsibly.'
     },
     {
       match: /cert|comptia|security\+|credential/i,
@@ -418,7 +418,7 @@
     const found = QA_RULES.find((r) => r.match.test(q));
     const answer = found
       ? found.reply
-      : 'I am James Ronald (JR.), a BS CS student at CvSU Bacoor learning cybersecurity fundamentals and doing bug bounty hunting as a side quest. Ask me about my labs, stack, certifications, or projects!';
+      : 'I am James Ronald B. Daguio, a BS CS student at CvSU Bacoor focused on a SOC analyst career, with ethical bug bounty hunting as my side hustle. Ask me about my labs, stack, certifications, or projects!';
 
     const bMsg = document.createElement('div');
     bMsg.className = 'ask-msg bot';
