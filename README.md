@@ -1,61 +1,76 @@
-
 # James Ronald Daguio — Personal Portfolio
 
-A personal portfolio website showcasing my background, projects, technical skills, and journey as a Computer Science student interested in Cybersecurity.
-
 <p align="center">
-  <a href="https://jms-rnld-dgi.github.io/jms-minimal-design/">
-    <strong>🌐 View Live Website</strong>
-  </a>
-  &nbsp; • &nbsp;
-  <a href="https://github.com/jms-rnld-dgi/jms-minimal-design">
-    <strong>📁 Source Code</strong>
-  </a>
+  <strong>Computer Science Student | Aspiring Cybersecurity Professional</strong>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
-  <img src="https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare">
-  <img src="https://img.shields.io/badge/GitHub_Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white" alt="GitHub Pages">
+  A minimalist personal portfolio showcasing my background, projects, technical interests, and journey in Computer Science.
+</p>
+
+<p align="center">
+  <a href="https://jms-rnld-dgi.github.io/jms-minimal-design/">Live Website</a> ·
+  <a href="https://github.com/jms-rnld-dgi/jms-minimal-design">Source Code</a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/Cloudflare-F38020?style=flat-square&logo=cloudflare&logoColor=white" alt="Cloudflare">
+  <img src="https://img.shields.io/badge/GitHub_Pages-222222?style=flat-square&logo=githubpages&logoColor=white" alt="GitHub Pages">
 </p>
 
 ---
 
-## 📖 About the Project
+## 01. Overview
 
-This project is my personal portfolio website, created to introduce myself, showcase my academic and personal projects, and document my development as a Computer Science student.
+Hi, I'm **James Ronald Daguio**, a Computer Science student at Cavite State University – Bacoor City Campus.
 
-The website follows a minimalist, monochrome, and editorial-inspired design. It focuses on readability, simplicity, responsive layouts, and interactive elements.
+I'm interested in technology, software development, and cybersecurity. This portfolio serves as my personal space to document my background, showcase my projects, and share what I'm learning.
 
-## ✨ Features
+The website follows a minimalist, monochrome design approach, focusing on typography, simplicity, and interactive details.
 
-- **Home** — Personal introduction and landing section.
-- **About** — Background, interests, and technical skills.
-- **Labs** — Technical experiments and cybersecurity learning activities.
-- **Projects** — Selected academic and personal projects.
-- **Background** — Education and experience.
-- **Credentials** — Certificates and achievements.
-- **Contact** — Contact form for inquiries.
-- **Responsive Design** — Adapted for desktop, tablet, and mobile devices.
-- **Theme Controls** — Customizable website appearance.
-- **Interactive Chatbot** — Portfolio assistance and navigation.
-- **Résumé** — Downloadable résumé.
-- **Contact Security** — Cloudflare Turnstile verification and server-side validation through a Cloudflare Worker.
+## 02. Preview
 
-## 🛠️ Built With
+<p align="center">
+  <a href="https://jms-rnld-dgi.github.io/jms-minimal-design/">
+    <strong>Visit the Live Portfolio ↗</strong>
+  </a>
+</p>
 
-| Technology | Purpose |
+## 03. Features
+
+| Feature | Description |
 |---|---|
-| HTML5 | Website structure |
-| CSS3 | Styling, animations, and responsive layout |
-| JavaScript | Interactions and functionality |
-| Cloudflare Turnstile | Contact form verification |
-| Cloudflare Workers | Contact form backend |
-| GitHub Pages | Website hosting |
+| Responsive Layout | Adapts to desktop, tablet, and mobile screens |
+| Theme Controls | Interactive visual theme options |
+| Live Clock | Displays the current Philippine time |
+| Activity Matrix | Visual representation of activity |
+| Stack Inspector | Showcases my development tools and technologies |
+| Ask JR | Interactive portfolio chatbot |
+| CLI Typing Test | Terminal-inspired typing interaction |
+| Guided Tour | Helps visitors explore the portfolio |
+| Keyboard Shortcuts | Quick navigation and interactions |
+| Contact Form | Contact interface with Turnstile verification |
+| Resume Download | Provides access to my résumé |
 
-## 📂 Project Structure
+## 04. Technology Stack
+
+### Frontend
+
+- HTML5 — Website structure
+- CSS3 — Styling, animations, and responsive layouts
+- JavaScript — Interactions and dynamic functionality
+
+### Services and Deployment
+
+- Cloudflare Workers — Contact form backend
+- Cloudflare Turnstile — Bot protection
+- GitHub Pages — Website hosting
+- Git — Version control
+
+## 05. Project Structure
 
 ```text
 jms-minimal-design/
@@ -84,41 +99,41 @@ jms-minimal-design/
 └── README.md
 ```
 
-## 🚀 Run Locally
+## 06. Getting Started
 
-To run the portfolio on your local machine:
+To run the portfolio locally:
 
-1. Clone the repository:
+**1. Clone the repository**
 
-   ```bash
-   git clone https://github.com/jms-rnld-dgi/jms-minimal-design.git
-   ```
+```bash
+git clone https://github.com/jms-rnld-dgi/jms-minimal-design.git
+```
 
-2. Navigate to the project folder:
+**2. Open the project folder**
 
-   ```bash
-   cd jms-minimal-design
-   ```
+```bash
+cd jms-minimal-design
+```
 
-3. Open the folder in Visual Studio Code:
+**3. Run the website**
 
-   ```bash
-   code .
-   ```
+Open `index.html` in your browser or use the VS Code Live Server extension.
 
-4. Open `index.html` using the Live Server extension or your preferred local development server.
+No frontend framework or package installation is required.
 
-## 🌐 Deployment
+## 07. Deployment
 
-This portfolio is hosted using **GitHub Pages**.
+This portfolio is hosted using GitHub Pages.
 
-Live Website:
+The repository includes a GitHub Actions workflow for deployment.
+
+**Live URL:**
 
 https://jms-rnld-dgi.github.io/jms-minimal-design/
 
-The repository includes a GitHub Actions workflow that handles deployment when changes are pushed to the `main` branch.
+For deployment configuration, see [DEPLOY.md](DEPLOY.md).
 
-## 📬 Contact Form Architecture
+## 08. Contact Form Architecture
 
 The contact form uses a separate Cloudflare Worker to process submissions.
 
@@ -134,54 +149,65 @@ Cloudflare Turnstile
    ▼
 Cloudflare Worker
    │
-   ├── Request Validation
+   ├── Input Validation
    ├── Rate Limiting
    └── Turnstile Verification
    │
    ▼
-Email Forwarding
+FormSubmit
+   │
+   ▼
+Email Delivery
 ```
 
-Security features include:
+**Security considerations:**
 
-- Cloudflare Turnstile verification.
-- Server-side token validation.
-- Request and input validation.
-- Rate limiting.
-- Allowed-origin checking.
-- Secret keys stored as Worker secrets.
+- Turnstile verification is performed server-side.
+- Contact submissions are validated before processing.
+- Rate limiting helps prevent excessive requests.
+- Secret keys are stored as Cloudflare Worker secrets and should never be committed to the repository.
 
-**Note:** Turnstile has been observed working on mobile data, while Wi-Fi loading is still being investigated. End-to-end email delivery should be tested before considering the contact form fully verified.
+*Note: Successful email delivery should be verified through an end-to-end test.*
 
-## 🎓 Academic Information
+## 09. Academic Background
 
-| Information | Details |
-|---|---|
-| Name | James Ronald Daguio |
-| Program | Bachelor of Science in Computer Science |
-| Institution | Cavite State University – Bacoor City Campus |
-| Interest | Cybersecurity |
-| Career Goal | Cybersecurity Professional |
+**Bachelor of Science in Computer Science**
 
-## 🔐 Areas of Interest
+Cavite State University – Bacoor City Campus
+
+Areas of interest:
 
 - Cybersecurity
-- Vulnerability Assessment and Penetration Testing (VAPT)
 - Network Security
 - Ethical Hacking
 - Web Development
-- Information Security
+- Software Engineering
 
-## 📄 Credits and Disclaimer
+## 10. Technical Interests
 
-This portfolio was developed for personal branding, academic presentation, and professional development.
+I'm continuously learning and exploring technologies related to:
 
-All project descriptions and materials are presented for educational and portfolio purposes. Third-party trademarks, technologies, and resources belong to their respective owners.
+- Cybersecurity and penetration testing
+- Network analysis and security
+- Linux environments
+- Programming and web technologies
+- System and application security
+
+## 11. Credits and Acknowledgment
+
+This portfolio is a personal project designed and developed by **James Ronald Daguio**.
+
+The design, layout, interactions, and implementation are part of my ongoing learning and development as a Computer Science student.
 
 ---
 
 <p align="center">
-  Designed and developed by <strong>James Ronald Daguio</strong>
-  <br>
-  © 2026 All Rights Reserved.
+  <strong>James Ronald Daguio</strong><br>
+  <sub>Learning. Building. Improving.</sub>
+</p>
+
+<p align="center">
+  <a href="https://github.com/jms-rnld-dgi">GitHub</a> ·
+  <a href="https://jms-rnld-dgi.github.io/jms-minimal-design/">Portfolio</a> ·
+  <a href="mailto:jamesrdaguio@gmail.com">Email</a>
 </p>
