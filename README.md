@@ -1,4 +1,4 @@
-# James Ronald Daguio --- Personal Portfolio
+[README-portfolio.md](https://github.com/user-attachments/files/34855788/README-portfolio.md)# James Ronald Daguio --- Personal Portfolio
 
 A personal portfolio website showcasing my background, projects,
 technical interests, and journey as a **BS Computer Science student at
