@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>jr. — James Ronald | Aspiring SOC Analyst &amp; Bug Bounty Hunter</title>
+  <meta name="description" content="Minimalist monochrome portfolio of James Ronald (JR.), BS Computer Science student at CvSU Bacoor learning cybersecurity fundamentals with a bug bounty hunter side quest." />
+
+  <!-- Pre-paint Theme Initialization (prevents FOUC) -->
+  <script>
+    (function () {
+      try {
+        var mode = localStorage.getItem('jr_theme') || 'system';
+        var resolved = mode === 'system'
+          ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+          : mode;
+        document.documentElement.dataset.themeMode = mode;
+        if (resolved === 'dark') document.documentElement.classList.add('dark');
+      } catch (e) {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+        }
+      }
+    })();
+  </script>
+
+  <!-- Typography: Geist, Geist Mono, Source Serif 4 & Geist Pixel Square -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Geist:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-pixel/style.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Hairline Reading Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Sticky Minimalist Topbar -->
+  <header class="topbar" role="banner">
+    <div class="topbar-inner">
+      <a href="#home" class="brand" aria-label="James Ronald home">
+        <span class="brand-glyph" aria-hidden="true">&gt;_</span>
+        <span>jr.</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <a href="#about" data-nav="about">about</a>
+        <a href="#labs" data-nav="labs">labs</a>
+        <a href="#projects" data-nav="projects">projects</a>
+        <a href="#background" data-nav="background">background</a>
+        <a href="#credentials" data-nav="credentials">credentials</a>
+        <a href="#contact" data-nav="contact">contact</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <!-- Live PHT Clock & Lab Status Micro -->
+        <div class="pht-clock" id="phtClock" title="Current local time in Bacoor, Cavite (PHT · UTC+8)">
+          <span class="pht-dot" aria-hidden="true"></span>
+          <span id="phtTime">--:-- PHT</span>
+        </div>
+
+        <!-- Icon-Only Segmented Theme Switcher -->
+        <div class="theme-switch" role="group" aria-label="Color theme switcher" data-theme-group style="--idx: 2;">
+          <span class="theme-pill" aria-hidden="true"></span>
+          <button type="button" class="theme-btn" data-set-theme="light" aria-label="Light theme" title="Light theme">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+            </svg>
+          </button>
+          <button type="button" class="theme-btn" data-set-theme="dark" aria-label="Dark theme" title="Dark theme">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+            </svg>
+          </button>
+          <button type="button" class="theme-btn" data-set-theme="system" aria-label="System theme" title="System theme">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+              <path d="M8 21h8M12 17v4"></path>
+            </svg>
+          </button>
+        </div>
+
+        <button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileOverlay" aria-label="Toggle navigation menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 8h16M4 16h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true">
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="#about" data-mobile-link>01 — about</a>
+      <a href="#labs" data-mobile-link>02 — labs</a>
+      <a href="#projects" data-mobile-link>03 — projects</a>
+      <a href="#background" data-mobile-link>04 — background</a>
+      <a href="#credentials" data-mobile-link>05 — credentials</a>
+      <a href="#contact" data-mobile-link>06 — contact</a>
+    </nav>
+    <div class="mobile-overlay-foot">
+      <span class="micro-label">APPEARANCE</span>
+      <div class="theme-switch" role="group" aria-label="Mobile color theme switcher" data-theme-group style="--idx: 2;">
+        <span class="theme-pill" aria-hidden="true"></span>
+        <button type="button" class="theme-btn" data-set-theme="light" aria-label="Light theme">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+        </button>
+        <button type="button" class="theme-btn" data-set-theme="dark" aria-label="Dark theme">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+        <button type="button" class="theme-btn" data-set-theme="system" aria-label="System theme">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+            <path d="M8 21h8M12 17v4"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Centered Editorial Reading Column (672px) -->
+  <main class="shell" id="top">
+    <!-- Hero Section -->
+    <section class="hero" id="home" data-tour-step="0">
+      <div class="halftone-corner" aria-hidden="true"></div>
+
+      <!-- Fixed profile portrait -->
+      <div class="portrait-wrap reveal" style="--delay: 50ms;">
+        <div class="portrait-card">
+          <img
+            src="assets/pfp.jpg"
+            alt="James Ronald (JR.) monochrome halftone portrait"
+          />
+          <div class="portrait-halftone" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="status-pill reveal" style="--delay: 110ms;">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>OPEN TO LEARNING · BACOOR, CAVITE</span>
+      </div>
+
+      <h1 class="display-title reveal" style="--delay: 160ms;">jr.</h1>
+      <p class="hero-subtitle reveal" style="--delay: 200ms;">
+        James Ronald · BS Computer Science Student · Aspiring SOC Analyst
+      </p>
+
+      <p class="hero-bio reveal" style="--delay: 240ms;">
+        Still learning the fundamentals of Linux, networking, and defensive security operations at Cavite State University – Bacoor Campus—with a side quest as a bug bounty hunter.
+      </p>
+
+      <div class="hero-actions reveal" style="--delay: 280ms;">
+        <a href="#projects" class="btn-primary">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          <span>view projects</span>
+        </a>
+        <a href="#contact" class="btn-ghost">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <span>get in touch</span>
+        </a>
+        <a href="assets/james-ronald-daguio-resume.pdf" class="btn-ghost" download>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v3h16v-3"/></svg>
+          <span>download resume</span>
+        </a>
+      </div>
+
+      <div class="social-row reveal" style="--delay: 310ms;">
+        <a href="https://github.com/jms-rnld-dgi" target="_blank" rel="noopener noreferrer" class="mono-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          <span>github</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <span class="sep" aria-hidden="true">/</span>
+        <a href="https://www.linkedin.com/in/james-ronald-daguio-289863251" target="_blank" rel="noopener noreferrer" class="mono-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <span>linkedin</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <span class="sep" aria-hidden="true">/</span>
+        <a href="mailto:jamesrdaguio@gmail.com" class="mono-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <span>email</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <!-- 3-Cell Hairline Focus Strip -->
+      <div class="stat-grid reveal" style="--delay: 330ms;">
+        <div class="stat-cell">
+          <div class="stat-top">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span class="micro-label">PRIMARY TRACK</span>
+          </div>
+          <div class="stat-value">soc analyst</div>
+          <div class="stat-meta">Log triage, SIEM &amp; TCP/IP</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-top">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
+            <span class="micro-label">SIDE QUEST</span>
+          </div>
+          <div class="stat-value">bug bounty</div>
+          <div class="stat-meta">Web recon &amp; OWASP labs</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-top">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <span class="micro-label">ACADEMIC</span>
+          </div>
+          <div class="stat-value">bs cs</div>
+          <div class="stat-meta">CvSU Bacoor Campus</div>
+        </div>
+      </div>
+
+      <!-- Micro Component: Live Study Telemetry Strip -->
+      <div class="telemetry-bar reveal" style="--delay: 360ms;" aria-label="Current study telemetry">
+        <div class="telemetry-item">
+          <span class="micro-label">NOW</span>
+          <span class="telemetry-val">SOC Level 1 · Auth Log Triage</span>
+        </div>
+        <span class="telemetry-sep" aria-hidden="true">·</span>
+        <div class="telemetry-item">
+          <span class="micro-label">QUEST</span>
+          <span class="telemetry-val">HTTP Recon &amp; IDOR Labs</span>
+        </div>
+        <span class="telemetry-sep" aria-hidden="true">·</span>
+        <div class="telemetry-item">
+          <span class="micro-label">ENV</span>
+          <span class="telemetry-val">Kali / Linux CLI</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="hairline" />
+
+    <!-- 01 — About -->
+    <section class="section" id="about" data-tour-step="1">
+      <div class="section-head">
+        <span class="section-num">01 — about</span>
+        <span class="micro-label">MINDSET &amp; APPROACH</span>
+      </div>
+      <div class="serif-body">
+        <p>
+          I balance Computer Science coursework and part-time work with disciplined, hands-on security study. Rather than rushing toward buzzwords, I focus on understanding how operating systems, network protocols, and web applications actually behave under the hood.
+        </p>
+        <p>
+          My immediate goal is an entry-level Security Operations Center (SOC) or Junior Security Analyst role where log analysis and calm incident triage matter—while exploring ethical bug bounty recon on the side to sharpen how I think about attacker methodology.
+        </p>
+      </div>
+    </section>
+
+    <hr class="hairline" />
+
+    <!-- 02 — Labs -->
+    <section class="section" id="labs" data-tour-step="2">
+      <div class="section-head">
+        <span class="section-num">02 — labs</span>
+        <span class="micro-label">ACTIVE PRACTICE</span>
+      </div>
+
+      <!-- Micro Component: Halftone Practice Activity Matrix -->
+      <div class="activity-card" aria-label="16-week hands-on lab cadence">
+        <div class="activity-head">
+          <span class="micro-label">LAB CADENCE · 16 WEEKS</span>
+          <span class="micro-label" id="activitySummary">CONSISTENT WEEKLY SESSIONS</span>
+        </div>
+        <div class="activity-grid" id="activityGrid" role="img" aria-label="Halftone dot matrix showing weekly lab study intensity"></div>
+        <div class="activity-foot">
+          <span class="micro-label">KALI + TRYHACKME + HTB</span>
+          <div class="activity-legend" aria-hidden="true">
+            <span class="micro-label">LESS</span>
+            <i class="lvl-0"></i>
+            <i class="lvl-1"></i>
+            <i class="lvl-2"></i>
+            <i class="lvl-3"></i>
+            <span class="micro-label">MORE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-top">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+            </span>
+            <span class="pill-inv">IN PROGRESS</span>
+          </div>
+          <h2 class="card-title">TryHackMe — Pre-Security &amp; SOC Level 1</h2>
+          <p class="card-desc">
+            Working through network packet fundamentals, Linux CLI workflows, Windows event logs, and introductory alert triage scenarios.
+          </p>
+          <div class="card-links">
+            <a href="https://tryhackme.com/p/jamesrdaguio" target="_blank" rel="noopener noreferrer" class="mono-link">
+              <span>view TryHackMe profile</span><span class="arrow">↗</span>
+            </a>
+          </div>
+          <div class="tag-row">
+            <span class="tag">LINUX CLI</span>
+            <span class="tag">PACKET ANALYSIS</span>
+            <span class="tag">ALERT TRIAGE</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </span>
+            <span class="pill">SIDE QUEST</span>
+          </div>
+          <h2 class="card-title">Hack The Box — Starting Point &amp; Web Recon</h2>
+          <p class="card-desc">
+            Practicing service enumeration, HTTP request inspection, and basic vulnerability validation inside isolated virtual lab machines.
+          </p>
+          <div class="card-links">
+            <a href="https://profile.hackthebox.com/profile/01a1da48-59f2-739e-94ac-3b824cd6ca5b?utm_medium=copy_url" target="_blank" rel="noopener noreferrer" class="mono-link">
+              <span>view Hack The Box profile</span><span class="arrow">↗</span>
+            </a>
+          </div>
+          <div class="tag-row">
+            <span class="tag">NMAP</span>
+            <span class="tag">ENUMERATION</span>
+            <span class="tag">OWASP TOP 10</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <hr class="hairline" />
+
+    <!-- 03 — Projects -->
+    <section class="section" id="projects" data-tour-step="3">
+      <div class="section-head">
+        <span class="section-num">03 — projects</span>
+        <span class="section-note">1 featured project</span>
+      </div>
+      <div class="card-grid" id="projectGrid">
+
+        <article class="card card-framed">
+          <div class="card-top">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </span>
+            <span class="pill">ACADEMIC WEB PROJECT</span>
+          </div>
+          <h2 class="card-title">Hyouka Character Tribute</h2>
+          <p class="card-desc">
+            A responsive character tribute website dedicated to Houtarou Oreki from <em>Hyouka</em>. Built with semantic HTML, custom CSS, and vanilla JavaScript as a Second Year, First Semester academic final project.
+          </p>
+          <div class="project-gallery" aria-label="Screenshots of the Hyouka Character Tribute website">
+            <a class="project-shot" href="https://github.com/jms-rnld-dgi/Character-Tribute-Website-Project/blob/main/screenshots/Screenshot1.png" target="_blank" rel="noopener noreferrer">
+              <img src="https://raw.githubusercontent.com/jms-rnld-dgi/Character-Tribute-Website-Project/main/screenshots/Screenshot1.png" alt="Hyouka Character Tribute website screenshot 1" loading="lazy" />
+            </a>
+            <a class="project-shot" href="https://github.com/jms-rnld-dgi/Character-Tribute-Website-Project/blob/main/screenshots/Screenshot2.png" target="_blank" rel="noopener noreferrer">
+              <img src="https://raw.githubusercontent.com/jms-rnld-dgi/Character-Tribute-Website-Project/main/screenshots/Screenshot2.png" alt="Hyouka Character Tribute website screenshot 2" loading="lazy" />
+            </a>
+            <a class="project-shot" href="https://github.com/jms-rnld-dgi/Character-Tribute-Website-Project/blob/main/screenshots/Screenshot3.png" target="_blank" rel="noopener noreferrer">
+              <img src="https://raw.githubusercontent.com/jms-rnld-dgi/Character-Tribute-Website-Project/main/screenshots/Screenshot3.png" alt="Hyouka Character Tribute website screenshot 3" loading="lazy" />
+            </a>
+            <a class="project-shot" href="https://github.com/jms-rnld-dgi/Character-Tribute-Website-Project/blob/main/screenshots/Screenshot4.png" target="_blank" rel="noopener noreferrer">
+              <img src="https://raw.githubusercontent.com/jms-rnld-dgi/Character-Tribute-Website-Project/main/screenshots/Screenshot4.png" alt="Hyouka Character Tribute website screenshot 4" loading="lazy" />
+            </a>
+          </div>
+          <div class="tag-row">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">VANILLA JS</span>
+            <span class="tag">GITHUB PAGES</span>
+          </div>
+          <div class="card-links">
+            <a href="https://jms-rnld-dgi.github.io/Character-Tribute-Website-Project/" target="_blank" rel="noopener noreferrer" class="mono-link">
+              <span>live website</span><span class="arrow">↗</span>
+            </a>
+            <a href="https://github.com/jms-rnld-dgi/Character-Tribute-Website-Project" target="_blank" rel="noopener noreferrer" class="mono-link">
+              <span>source code</span><span class="arrow">↗</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <hr class="hairline" />
+
+    <!-- 04 — Background & Stack -->
+    <section class="section" id="background" data-tour-step="4">
+      <div class="section-head">
+        <span class="section-num">04 — background</span>
+        <span class="micro-label">TIMELINE &amp; TOOLKIT</span>
+      </div>
+
+      <div class="list-table" role="list">
+        <div class="list-row" role="listitem">
+          <div class="row-left">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div>
+              <div class="row-title">Self-Directed Cybersecurity &amp; Bug Bounty Study</div>
+              <div class="row-sub">TryHackMe · Hack The Box · Kali Linux Home Lab</div>
+            </div>
+          </div>
+          <span class="micro-label">2025 — PRESENT</span>
+        </div>
+
+        <div class="list-row" role="listitem">
+          <div class="row-left">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <div>
+              <div class="row-title">BS in Computer Science</div>
+              <div class="row-sub">Cavite State University – Bacoor Campus</div>
+            </div>
+          </div>
+          <span class="micro-label">UNDERGRADUATE</span>
+        </div>
+
+        <div class="list-row" role="listitem">
+          <div class="row-left">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+            <div>
+              <div class="row-title">Working Student — Barista &amp; Shift Operations</div>
+              <div class="row-sub">Bacoor, Cavite · Customer service, inventory &amp; POS</div>
+            </div>
+          </div>
+          <span class="micro-label">PART-TIME</span>
+        </div>
+      </div>
+
+      <div class="stack-group">
+        <div class="stack-row">
+          <div class="stack-head">
+            <span class="micro-label">SECURITY &amp; OS</span>
+            <span class="micro-label" id="stackNote">CLICK ANY CHIP TO INSPECT USAGE</span>
+          </div>
+          <div class="tag-row" id="stackTags">
+            <button type="button" class="tag tag-btn" data-note="Daily lab environment for enumeration, log parsing, and bash scripting.">KALI LINUX</button>
+            <button type="button" class="tag tag-btn" data-note="Local server administration, systemd logs, and permissions practice.">UBUNTU</button>
+            <button type="button" class="tag tag-btn" data-note="Event Viewer (Security/Sysmon) and basic PowerShell triage.">WINDOWS</button>
+            <button type="button" class="tag tag-btn" data-note="Service discovery, NSE script scanning, and port state verification.">NMAP</button>
+            <button type="button" class="tag tag-btn" data-note="Inspecting TCP handshakes, DNS queries, and HTTP packet streams.">WIRESHARK</button>
+            <button type="button" class="tag tag-btn" data-note="Intercepting HTTP requests and testing input validation in web labs.">BURP SUITE (BASICS)</button>
+            <button type="button" class="tag tag-btn" data-note="Writing quick log-parsing scripts and automating recon tasks.">PYTHON</button>
+            <button type="button" class="tag tag-btn" data-note="Grepping auth logs, piping awk/sort/uniq, and CLI text processing.">BASH</button>
+            <button type="button" class="tag tag-btn" data-note="Building client-side security tools and minimalist web interfaces.">JAVASCRIPT</button>
+            <button type="button" class="tag tag-btn" data-note="Object-oriented coursework projects and desktop record systems.">JAVA</button>
+            <button type="button" class="tag tag-btn" data-note="Relational schema design, queries, and understanding SQL injection.">SQL</button>
+            <button type="button" class="tag tag-btn" data-note="Semantic markup, responsive grids, and monochrome editorial UI.">HTML / CSS</button>
+            <button type="button" class="tag tag-btn" data-note="Version-controlling lab journals, scripts, and portfolio builds.">GIT</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="hairline" />
+
+    <!-- 05 — Credentials -->
+    <section class="section" id="credentials" data-tour-step="5">
+      <div class="section-head">
+        <span class="section-num">05 — credentials</span>
+        <span class="micro-label">TRANSPARENT STATUS</span>
+      </div>
+
+      <div class="cred-grid">
+        <div class="cred-box">
+          <span class="micro-label">EARNED COMMERCIAL CERTS</span>
+          <div class="cred-count">0</div>
+          <p class="card-desc">
+            No commercial vendor certifications claimed yet—prioritizing foundational lab hours before sitting for exams.
+          </p>
+        </div>
+        <div class="cred-box">
+          <span class="micro-label">CURRENT TARGETS</span>
+          <div class="cred-count">2</div>
+          <p class="card-desc">
+            Completing TryHackMe SOC Level 1 path and building readiness toward CompTIA Security+ (SY0-701).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="hairline" />
+
+    <!-- 06 — Contact -->
+    <section class="section" id="contact" data-tour-step="6">
+      <div class="section-head">
+        <span class="section-num">06 — contact</span>
+        <span class="micro-label">SAY HELLO</span>
+      </div>
+
+      <p class="serif-body-sm">
+        Open to entry-level SOC internships, junior security opportunities, study groups, or feedback from fellow defenders and bug bounty hunters.
+      </p>
+
+      <div class="email-bar">
+        <code id="emailAddress">jamesrdaguio@gmail.com</code>
+        <button type="button" class="btn-copy" id="copyEmailBtn" aria-label="Copy email address">
+          <svg id="copyIcon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span id="copyLabel">COPY</span>
+        </button>
+      </div>
+
+      <p class="resume-download">
+        <a href="assets/james-ronald-daguio-resume.pdf" class="mono-link" download>
+          <span>download privacy-friendly resume (PDF)</span>
+          <span class="arrow" aria-hidden="true">↓</span>
+        </a>
+      </p>
+
+      <!-- The contact form will be enabled after Cloudflare Turnstile and the Worker are deployed. -->
+      <p class="serif-body-sm" id="contactSetupNotice">
+        The contact form is being secured. In the meantime,
+        <a href="mailto:jamesrdaguio@gmail.com" class="mono-link">email me directly</a>.
+      </p>
+      <form class="contact-form" id="contactForm" hidden>
+        <div class="form-row">
+          <label class="field">
+            <span class="micro-label">YOUR NAME</span>
+            <input type="text" name="name" placeholder="Alex Rivera" required />
+          </label>
+          <label class="field">
+            <span class="micro-label">EMAIL</span>
+            <input type="email" name="email" placeholder="alex@domain.com" required />
+          </label>
+        </div>
+        <label class="field">
+          <span class="micro-label">MESSAGE</span>
+          <textarea name="message" rows="3" placeholder="Role inquiry, lab note, or quick hello..." required></textarea>
+        </label>
+        <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY" data-theme="auto"></div>
+        <div class="form-foot">
+          <span class="form-status" id="formStatus" role="status" aria-live="polite"></span>
+          <button type="submit" class="btn-primary">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            <span>send message</span>
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>© 2026 James Ronald (JR.) · Bacoor, Cavite · Press <kbd class="inline-kbd">?</kbd> for shortcuts</span>
+      <a href="#top" class="mono-link">
+        <span>back to top</span>
+        <span class="arrow" aria-hidden="true">↑</span>
+      </a>
+    </footer>
+  </main>
+
+  <!-- Floating Command Bar -->
+  <div class="command-dock" id="commandDock" role="toolbar" aria-label="Quick utilities">
+    <button type="button" class="dock-btn" id="openAskBtn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span>Ask JR.</span>
+      <kbd>⌘K</kbd>
+    </button>
+    <span class="dock-sep" aria-hidden="true"></span>
+    <button type="button" class="dock-btn" id="openCliBtn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+      <span>CLI Test</span>
+      <kbd>Alt+J</kbd>
+    </button>
+    <span class="dock-sep" aria-hidden="true"></span>
+    <button type="button" class="dock-btn" id="startTourBtn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+      <span>Tour</span>
+    </button>
+    <span class="dock-sep" aria-hidden="true"></span>
+    <button type="button" class="dock-btn" id="openKeysBtn" aria-label="Keyboard shortcuts" title="Keyboard shortcuts (?)">
+      <kbd>?</kbd>
+    </button>
+  </div>
+
+  <!-- Synchronized 7-Step Guided Tour HUD -->
+  <div class="tour-hud" id="tourHud" role="region" aria-label="Guided tour" hidden>
+    <div class="tour-head">
+      <span class="micro-label" id="tourStepLabel">STEP 01 / 07</span>
+      <button type="button" class="tour-close" id="tourCloseBtn" aria-label="Exit tour">ESC</button>
+    </div>
+    <div class="tour-title" id="tourTitle">Overview &amp; Focus</div>
+    <p class="tour-desc" id="tourDesc">Centered reading measure, monochrome halftone portrait, and core cybersecurity focus areas.</p>
+    <div class="tour-foot">
+      <div class="tour-dots" id="tourDots" role="tablist" aria-label="Tour steps"></div>
+      <div class="tour-nav">
+        <button type="button" class="btn-ghost btn-sm" id="tourPrevBtn">← prev</button>
+        <button type="button" class="btn-primary btn-sm" id="tourNextBtn">next →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 1: Ask JR. Assistant -->
+  <div class="modal-backdrop" id="askModal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="askTitle">
+      <div class="modal-head">
+        <div>
+          <span class="micro-label">INTERACTIVE PROFILE</span>
+          <h3 class="modal-title" id="askTitle">ask jr.</h3>
+        </div>
+        <button type="button" class="modal-close" data-close-modal="askModal" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="ask-chips" id="askChips">
+        <button type="button" class="chip-btn" data-q="What are you currently learning?">Current focus?</button>
+        <button type="button" class="chip-btn" data-q="Tell me about your bug bounty side quest.">Bug bounty side quest?</button>
+        <button type="button" class="chip-btn" data-q="Do you have certifications yet?">Certifications?</button>
+        <button type="button" class="chip-btn" data-q="What is your academic background?">Education &amp; work?</button>
+      </div>
+
+      <div class="ask-log" id="askLog">
+        <div class="ask-msg bot">
+          Hi—I'm JR., a BS Computer Science student at CvSU Bacoor still building my fundamentals in Linux, networking, and SOC analysis, with bug bounty hunting as my side quest. What would you like to know?
+        </div>
+      </div>
+
+      <form class="ask-form" id="askForm">
+        <input type="text" id="askInput" placeholder="Ask about labs, tools, or goals..." autocomplete="off" />
+        <button type="submit" class="btn-primary btn-sm">ask</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 2: CLI Typing Test -->
+  <div class="modal-backdrop" id="cliModal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="cliTitle">
+      <div class="modal-head">
+        <div>
+          <span class="micro-label">TERMINAL DRILL</span>
+          <h3 class="modal-title" id="cliTitle">cli typing test</h3>
+        </div>
+        <button type="button" class="modal-close" data-close-modal="cliModal" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="cli-stats">
+        <div><span class="micro-label">WPM</span><strong id="cliWpm">0</strong></div>
+        <div><span class="micro-label">ACCURACY</span><strong id="cliAcc">100%</strong></div>
+        <div><span class="micro-label">TIME</span><strong id="cliTime">30s</strong></div>
+      </div>
+
+      <div class="cli-prompt" id="cliPrompt" aria-label="Command prompt target"></div>
+      <input type="text" class="cli-input" id="cliInput" placeholder="Start typing the command above..." autocomplete="off" spellcheck="false" />
+
+      <div class="modal-foot">
+        <span class="micro-label">TYPE TO START · TAB TO RESET</span>
+        <button type="button" class="btn-ghost btn-sm" id="cliResetBtn">↻ new command</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Keyboard Shortcuts Cheat Sheet -->
+  <div class="modal-backdrop" id="keysModal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="keysTitle">
+      <div class="modal-head">
+        <div>
+          <span class="micro-label">NAVIGATION</span>
+          <h3 class="modal-title" id="keysTitle">shortcuts</h3>
+        </div>
+        <button type="button" class="modal-close" data-close-modal="keysModal" aria-label="Close modal">✕</button>
+      </div>
+      <div class="shortcut-list">
+        <div class="shortcut-row"><span>Ask JR. Q&amp;A</span><kbd>⌘K / Alt+K</kbd></div>
+        <div class="shortcut-row"><span>CLI Typing Test</span><kbd>Alt+J</kbd></div>
+        <div class="shortcut-row"><span>Cycle Theme</span><kbd>D</kbd></div>
+        <div class="shortcut-row"><span>Jump to Sections 01–06</span><kbd>1 – 6</kbd></div>
+        <div class="shortcut-row"><span>Guided Tour Controls</span><kbd>← / →</kbd></div>
+        <div class="shortcut-row"><span>Close Overlay / Modal</span><kbd>ESC</kbd></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enable this script after configuring Turnstile:
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  -->
+  <script>
+    // Replace both placeholders after creating your Turnstile widget and Worker.
+    window.JR_CONTACT_CONFIG = {
+      siteKey: "YOUR_TURNSTILE_SITE_KEY",
+      apiUrl: "https://YOUR-WORKER-NAME.YOUR-SUBDOMAIN.workers.dev/api/contact"
+    };
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>
